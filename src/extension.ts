@@ -44,7 +44,7 @@ export function activate(context: vscode.ExtensionContext) {
         let scheme = selection.textEditor.document.uri.scheme
         let activeDebug = !!vscode.debug.activeDebugSession
 
-        if (selection.kind != TextEditorSelectionChangeKind.Mouse // selection was not from a click
+        if (selection.kind == TextEditorSelectionChangeKind.Command // selection was not from a m click or short_cut key
             || selection.selections.length != 1                   // no selections or multiselections
             || selection.selections.find(a => a.isEmpty) == null  // multiselections
             || !pathIsFile                                        // The debug window editor
